@@ -1,11 +1,12 @@
 import React from 'react'
-import image from "../images/signup.svg"
+
 import classes from "../style/Illustration.module.css"
-const Illustration = () => {
+const Illustration = ({children}) => {
   return (
     
          <div className={classes.illustration}>
-            <img src={image} alt="Signup" />
+           
+            {children}
           </div>
     
   )

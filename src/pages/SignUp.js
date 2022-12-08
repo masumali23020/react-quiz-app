@@ -4,14 +4,16 @@ import CheckBox from '../components/CheckBox'
 import From from '../components/From'
 import Illustration from '../components/Illustration'
 import TextInput from '../components/TextInput'
+import image from "../images/signup.svg"
 import classes from "../style/SignUp.module.css"
-
 const SignUp = () => {
   return (
     <>
       <h1>Create an account</h1>
       <div class="column">
-        <Illustration />
+        <Illustration>
+        <img src={image} alt="Signup" />
+           </Illustration>
         <From className={`${classes.signup}`} >
 
             <TextInput icon="person" type="text" placeholder="Inter Your Name"  />
@@ -24,7 +26,7 @@ const SignUp = () => {
 
             <CheckBox text="I agree to the Terms & Conditions" />
             <Button>
-                Submit now 
+                <span> Submit now </span>
 
             </Button>
             <div className="info">Already have an account? <a href="login.html">Login</a> instead.</div>

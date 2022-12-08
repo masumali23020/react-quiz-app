@@ -1,9 +1,9 @@
 import React from 'react'
 
-const CheckBox = ({text}) => {
+const CheckBox = ({className,id,text,}) => {
   return (
     <>
-         <label> <input type="checkbox" />
+         <label className={className} > <input type="checkbox"  />
           <span> {text}</span> </label>
     </>
   )
