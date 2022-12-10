@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import CheckBox from '../components/CheckBox'
 import From from '../components/From'
@@ -29,7 +30,7 @@ const SignUp = () => {
                 <span> Submit now </span>
 
             </Button>
-            <div className="info">Already have an account? <a href="login.html">Login</a> instead.</div>
+            <div className="info">Already have an account? <Link to="/login">Login</Link> instead.</div>
 
 
 
