@@ -7,6 +7,7 @@ import Result from "../pages/Result";
 import SignUp from "../pages/SignUp";
 import "../style/App.css";
 import Layout from "./Layout";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -19,11 +20,25 @@ function App() {
       <AuthProvider>
     <Layout >
       <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/signup" element={ <SignUp />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/quiz" element={<Quiz />} />
-      <Route path="/result" element={<Result />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={ <SignUp />} />
+        <Route path="/login" element={<Login />} />
+
+
+
+          
+          
+       
+
+
+          <Route path="/quiz" element={<PrivateRoute />} >
+          <Route path="/quiz" element={<Quiz />} />
+        </Route>
+          <Route path="/result" element={<PrivateRoute />} >
+          <Route path="/result" element={<Result /> }/>
+        </Route>
+
+        {/* <Route path="/result" element={<Result />} /> */}
       
      
      
