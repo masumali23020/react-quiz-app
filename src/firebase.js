@@ -9,6 +9,7 @@ import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyCik5WYmqJKuJgktpmyflYoSuJNPnrjum8",
   authDomain: "quiz-react-dev-55a73.firebaseapp.com",
+  databaseURL: "https://quiz-react-dev-55a73-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "quiz-react-dev-55a73",
   storageBucket: "quiz-react-dev-55a73.appspot.com",
   messagingSenderId: "696366997186",
