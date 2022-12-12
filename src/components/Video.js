@@ -1,5 +1,5 @@
 import React from 'react'
-import imges from "../images/3.jpg"
+
 import classes from "../style/Video.module.css"
 
 const Video = ({title, noq, id}) => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
 import CheckBox from '../components/CheckBox'
 import From from '../components/From'
@@ -9,7 +9,7 @@ import classes from "../style/SignUp.module.css"
 
 
 function SignupFrom() {
-  const [userName, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -19,7 +19,7 @@ function SignupFrom() {
   const [loading, setLoading] = useState();
 
   const { signup } = useAuth();
-  const navigate = useNavigate()
+ const navigate = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -32,7 +32,7 @@ function SignupFrom() {
       setError("");
       setLoading(true);
       await signup(email, password, username);
-      Navigate("/")
+      navigate("/");
     } catch (err) {
       console.log(err);
       setLoading(false);
@@ -44,7 +44,7 @@ function SignupFrom() {
     <>
  <From className={`${classes.signup}`} onSubmit={handleSubmit} >
 
-<TextInput icon="person" type="text" placeholder="Inter Your Name" value={userName} onChange={(e)=>setUsername(e.target.value)}  />
+<TextInput icon="person" type="text" placeholder="Inter Your Name" value={username} onChange={(e)=>setUsername(e.target.value)}  />
 
 <TextInput icon="alternate_email" type="text" placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value)}  />
 
