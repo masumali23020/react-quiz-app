@@ -3,6 +3,7 @@ import image from "../images/success.png"
 import classes from "../style/Summary.module.css"
 
 const Summary = ({score,noq}) => {
+   
   return (
     <div className={classes.summary}>
           <div className={classes.point}>
@@ -12,11 +13,12 @@ const Summary = ({score,noq}) => {
               {score} out of {noq * 5}
             </p>
           </div>
+          
 
           <div className={classes.badge}>
             <img src={image} alt="Success" />
           </div>
-        </div>
+     </div>
   )
 }
 
