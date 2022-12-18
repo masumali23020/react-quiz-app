@@ -5,9 +5,9 @@ import Video from "../components/Video"
 import useVideoList from '../hooks/useVideoList'
 const Videos = () => {
   
-  const [page, setPage] = useState(1)
-  const {videos, loading, error, hasMore} = useVideoList(page)
-  
+  const [page, setPage] = useState(1);
+  const { loading, error, videos, hasMore } = useVideoList(page);
+
   return (
     <div>
       {videos.length > 0 && (
@@ -17,12 +17,24 @@ const Videos = () => {
           loader="Loading..."
           next={() => setPage(page + 8)}
         >
-          {videos.map((video, indx) =>
+          {videos.map((video) =>
             video.noq > 0 ? (
+<<<<<<< HEAD
               <Link to={`/quiz/${video.youtubeID}`}
               
               
               key={indx}>
+=======
+              <Link
+                to={{
+                  pathname: `/quiz/${video.youtubeID}`,
+                  state: {
+                    videoTitle: video.title,
+                  },
+                }}
+                key={video.youtubeID}
+              >
+>>>>>>> 078f80e869f1ce2ec474786138ff335c44a4a2a0
                 <Video
                   title={video.title}
                   id={video.youtubeID}
@@ -34,7 +46,7 @@ const Videos = () => {
                 title={video.title}
                 id={video.youtubeID}
                 noq={video.noq}
-                key={indx}
+                key={video.youtubeID}
               />
             )
           )}

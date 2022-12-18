@@ -39,6 +39,9 @@ h4 {
   margin-top: 1rem;
   text-align: center;
 }
+.columnsadsa {
+  color: #002333;
+}
 
 .error {
   background-color: var(--dangerRed);

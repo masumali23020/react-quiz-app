@@ -4,6 +4,7 @@ import successImage from "../images/success.png"
 import classes from "../style/Summary.module.css"
 
 const Summary = ({score,noq}) => {
+<<<<<<< HEAD
   const getKeyword = useMemo(() => {
     if ((score / (noq * 5)) * 100 < 50) {
       return "failed";
@@ -46,6 +47,25 @@ const Summary = ({score,noq}) => {
       )}
     </div>
   );
+=======
+   
+  return (
+    <div className={classes.summary}>
+          <div className={classes.point}>
+          
+            <p className={classes.score}>
+              Your score is <br />
+              {score} out of {noq * 5}
+            </p>
+          </div>
+          
+
+          <div className={classes.badge}>
+            <img src={image} alt="Success" />
+          </div>
+     </div>
+  )
+>>>>>>> 078f80e869f1ce2ec474786138ff335c44a4a2a0
 }
 
 export default Summary
