@@ -7,51 +7,54 @@ import useAnswerList from '../hooks/useAnswerList';
 
 const Result = () => {
 
-
   const { id } = useParams();
   const location = useLocation();
-const { state } = location;
-  const { qna } = state;
+ 
+
+const qna = location.state
+
+ 
 
   const { loading, error, answers } = useAnswerList(id);
-  
-  function calculate(){
+
+  function calculate() {
     let score = 0;
+
     answers.forEach((question, index1) => {
-    let correctIndex = [],
-    checkedIndex = [];
-    question.options.forEach((option, index2) =>{
-      if(option.correct) correctIndex.push(index2);
-      if(qna[index1].options[index2].checked){
-        checkedIndex.push(index2);
-        option.checked = true;
+      let correctIndexes = [],
+        checkedIndexes = [];
+
+      question.options.forEach((option, index2) => {
+        if (option.correct) correctIndexes.push(index2);
+        if (qna[index1].options[index2].checked) {
+          checkedIndexes.push(index2);
+          option.checked = true;
+        }
+      });
+
+      if (_.isEqual(correctIndexes, checkedIndexes)) {
+        score = score + 5;
       }
-    })
+    });
 
-    if(_.isEqual(correctIndex, checkedIndex)){
-      score += 5;
-    }
-    })
-    return score
-
+    return score;
   }
 
-  const userScore = calculate()
-
+  const userScore = calculate();
 
   return (
     <>
-    {loading && <div> loading..... </div>}
-    {error && <div> There is an Erro</div>}
-    {answers && answers.length > 0 && (
+      {loading && <div>Loading...</div>}
+      {error && <div>There was an error!</div>}
+
+      {answers && answers.length > 0 && (
         <>
-          <Summary score={userScore} noq={answers.length}  />
+          <Summary score={userScore} noq={answers.length} />
           <Analysis answers={answers} />
         </>
       )}
- 
     </>
-  )
+  );
 }
 
 export default Result

@@ -57,6 +57,7 @@ function SignupFrom() {
     <span> Submit now </span>
 
 </Button>
+{error && <p className="error">{error}</p>}
 <div className="info">Already have an account? <Link to="/login">Login</Link> instead.</div>
 
 

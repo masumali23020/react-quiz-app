@@ -37,6 +37,9 @@ const Quiz = () => {
 
   const [qna, dispatch] = useReducer(reducer, initialState);
   const { currentUser } = useAuth();
+
+  
+
   
   const navigate = useNavigate()
 
@@ -82,16 +85,12 @@ const Quiz = () => {
     });
 
 
-    navigate(`/result/${id}`, {
-      state: {
-        qna,
-      },
-    });
-    
-  }
+   
 
-    // submit quiz
- 
+    navigate(`/result/${id}`, {
+      state: qna,
+    });
+  }
 
   // calculate percentage of progress
   const percentage =  questions.length > 0 ? ((currentQuestion + 1) / questions.length) * 100 : 0;
@@ -106,8 +105,7 @@ const Quiz = () => {
           <h1>{qna[currentQuestion].title}</h1>
           <h4>Question can have multiple answers</h4>
           <Answeres
-          input
-        
+            input
             options={qna[currentQuestion].options}
             handleChange={handleAnswerChange}
           />
@@ -117,11 +115,10 @@ const Quiz = () => {
             submit={submit}
             progress={percentage}
           />
-          <Minplayer id={id} title={qna[currentQuestion].title} />
+          <Minplayer id={id} title={qna[currentQuestion].title}  />
         </>
       )}
     </>
-    
   )
 }
 

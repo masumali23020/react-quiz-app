@@ -10,7 +10,6 @@ const LoginFrom = () => {
     const {login} = useAuth()
 
     const [loading, setLoading] = useState()
-    const [user, setUser] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
