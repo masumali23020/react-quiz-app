@@ -17,24 +17,12 @@ const Videos = () => {
           loader="Loading..."
           next={() => setPage(page + 8)}
         >
-          {videos.map((video) =>
+          {videos.map((video,indx) =>
             video.noq > 0 ? (
-<<<<<<< HEAD
               <Link to={`/quiz/${video.youtubeID}`}
               
               
               key={indx}>
-=======
-              <Link
-                to={{
-                  pathname: `/quiz/${video.youtubeID}`,
-                  state: {
-                    videoTitle: video.title,
-                  },
-                }}
-                key={video.youtubeID}
-              >
->>>>>>> 078f80e869f1ce2ec474786138ff335c44a4a2a0
                 <Video
                   title={video.title}
                   id={video.youtubeID}
